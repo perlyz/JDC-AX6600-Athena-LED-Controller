@@ -35,12 +35,12 @@
 *仅适用于需要集成到自编译固件的开发者。*
 
 1.  **准备环境**: 使用适用于 `ipq60xx/ax6600` 的 OpenWrt SDK。
-2.  **添加插件**: 将本目录复制到 SDK 的 `package/` 下。
+2.  **添加插件**: 将仓库根目录克隆到 OpenWrt 的 `package/luci-app-athena-led/`。
 3.  **编译**:
     ```bash
     make package/luci-app-athena-led/compile
     ```
-    *(注意: Makefile 会自动从 Release 页面下载对应的 Rust 核心程序二进制文件，无需手动编译 Rust 部分。)*
+    *(注意: 构建时会直接使用仓库内附带的 `athena-led/` Rust 源码本地编译。)*
 
 
 
@@ -76,18 +76,18 @@ You do **not** need to compile this manually. We provide ready-to-use packages.
 *Only for developers building custom firmware.*
 
 1.  **Prepare SDK**: Use OpenWrt SDK for `ipq60xx/ax6600`.
-2.  **Add Package**: Copy `luci-app-athena-led` to `package/`.
+2.  **Add Package**: Clone the repository root into `package/luci-app-athena-led/`.
 3.  **Compile**:
     ```bash
     make package/luci-app-athena-led/compile
     ```
-    *(Note: The Makefile automatically downloads the pre-compiled `athena-led` binary from our Releases.)*
+    *(Note: The build uses the bundled `athena-led/` Rust sources and compiles them locally.)*
 
 ## 依赖说明
 
 * `luci-base`
 * `lua`
-* `athena-led` (Rust Binary, 编译时自动下载)
+* `athena-led` (Rust source, built locally during package compilation)
 
 ## License
 

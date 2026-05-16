@@ -50,6 +50,23 @@
 * **Rust 核心**: 请参阅 [athena-led/README.md](athena-led/README.md)
 * **LuCI 界面**: 请参阅 [luci-app-athena-led/README.md](luci-app-athena-led/README.md)
 
+### 📦 OpenWrt 固件集成
+
+本仓库根目录本身就是一个可直接使用的 OpenWrt 包目录。
+
+```bash
+git clone --depth=1 https://github.com/perlyz/JDC-AX6600-Athena-LED-Controller.git package/luci-app-athena-led
+```
+
+然后在 OpenWrt 源码树中继续执行：
+
+```bash
+make defconfig
+make package/luci-app-athena-led/compile V=s
+```
+
+构建时会直接使用仓库内附带的 `athena-led/` Rust 源码本地编译，不再下载预编译二进制。
+
 
 ---
 
@@ -97,6 +114,23 @@ For the latest development snapshots using the new `apk` package manager.
 If you are building your own OpenWrt firmware or want to modify the source:
 * **Rust Core**: See [athena-led/README.md](athena-led/README.md)
 * **LuCI App**: See [luci-app-athena-led/README.md](luci-app-athena-led/README.md)
+
+### 📦 OpenWrt Firmware Integration
+
+The repository root is a ready-to-use OpenWrt package directory.
+
+```bash
+git clone --depth=1 https://github.com/perlyz/JDC-AX6600-Athena-LED-Controller.git package/luci-app-athena-led
+```
+
+Then continue inside your OpenWrt tree:
+
+```bash
+make defconfig
+make package/luci-app-athena-led/compile V=s
+```
+
+The build uses the bundled `athena-led/` Rust sources and no longer downloads a prebuilt release binary.
 
 
 ---
